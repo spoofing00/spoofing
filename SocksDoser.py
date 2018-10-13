@@ -132,13 +132,13 @@ print ("\033[31m/___/\___/\__/_/\_\/___/____/\___/___/\__/_/      \033[0m")
 print ("\033[33m                     Instagram : @bossy.078 \033[0m")
 print (" ")
 
-ip = raw_input("\033[41m [+] Hedef / IP : \033[1m")
-port = input("\033[46m [+] Port : \033[1m")
-thread_num = input("\033[43m [+] Threads : \033[1m")
+ip = raw_input("\033[31m [+] Hedef / IP : \033[2m")
+port = input("\033[36m [+] Port : \033[2m")
+thread_num = input("\033[33m [+] Threads : \033[2m")
 url2 = '/'
-out_file = raw_input("\033[44m [+] Proxy [proxy.txt] : \033[1m")
-print ("\033[44m [+] Toplam Proxy : %s \033[1m" % (len(open(out_file).readlines())))
-multiple = int(input("\033[42m [+] Adet : \033[1m"))
+out_file = raw_input("\033[34m [+] Proxy [proxy.txt] : \033[2m")
+print ("\033[34m [+] Toplam Proxy : %s \033[2m" % (len(open(out_file).readlines())))
+multiple = int(input("\033[32m [+] Adet : \033[2m"))
 
 acceptall = [
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
