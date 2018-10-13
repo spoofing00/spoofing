@@ -191,7 +191,7 @@ def run():
 					except:
 						s.close()
 				except:
-					print ("[!] Error Socks Down\r\n")
+					print ("\033[31m [!] Error Socks Down \033[22m \r\n")
 					s.close()
 
 for i in range(thread_num):
