@@ -133,7 +133,7 @@ print ("\033[33m                     Instagram : @bossy.078 \033[0m")
 print (" ")
 
 ip = raw_input("\033[31m [+] Hedef / IP : \033[1m")
-port = input("\033[37m [+] Port : \033[1m")
+port = input("\033[36m [+] Port : \033[1m")
 thread_num = input("\033[33m [+] Threads : \033[1m")
 url2 = '/'
 out_file = raw_input("\033[34m [+] Proxy [proxy.txt] : \033[1m")
