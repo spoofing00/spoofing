@@ -125,11 +125,11 @@ useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firef
 			"Mozilla/5.0 (X11; U; SunOS sun4m; en-US; rv:1.4b) Gecko/20030517 Mozilla Firebird/0.6",]
       
 print (" ")
-print ("   ____         __        ___                     ") 
-print ("  / __/__  ____/ /__ ___ / _ \___  ___ ___ ____   ")
-print (" _\ \/ _ \/ __/  '_/(_-</ // / _ \(_-</ -_) __/   ")
-print ("/___/\___/\__/_/\_\/___/____/\___/___/\__/_/      ")
-print ("                     Instagram : @bossy.078       ") 
+print ("\033[31m   ____         __        ___                     \033[0m") 
+print ("\033[31m  / __/__  ____/ /__ ___ / _ \___  ___ ___ ____   \033[0m")
+print ("\033[31m _\ \/ _ \/ __/  '_/(_-</ // / _ \(_-</ -_) __/  \033[0m")
+print ("\033[31m/___/\___/\__/_/\_\/___/____/\___/___/\__/_/      \033[0m")
+print ("\033[33m                     Instagram : @bossy.078 \033[0m")
 print (" ")
 
 ip = raw_input("[+] Hedef / IP : ")
