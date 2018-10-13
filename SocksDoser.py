@@ -132,7 +132,7 @@ print ("\033[31m/___/\___/\__/_/\_\/___/____/\___/___/\__/_/      \033[0m")
 print ("\033[33m                     Instagram : @bossy.078 \033[0m")
 print (" ")
 
-ip = raw_input("\033[31m [+] Hedef / IP : \033[2m")
+ip = raw_input("\033[31m [+] Hedef / IP : \033[22m")
 port = input("\033[36m [+] Port : \033[2m")
 thread_num = input("\033[33m [+] Threads : \033[2m")
 url2 = '/'
