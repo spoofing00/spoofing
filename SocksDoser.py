@@ -125,20 +125,20 @@ useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firef
 			"Mozilla/5.0 (X11; U; SunOS sun4m; en-US; rv:1.4b) Gecko/20030517 Mozilla Firebird/0.6",]
       
 print (" ")
-print ("\033[31m   ____         __        ___                     \033[0m") 
-print ("\033[31m  / __/__  ____/ /__ ___ / _ \___  ___ ___ ____   \033[0m")
-print ("\033[31m _\ \/ _ \/ __/  '_/(_-</ // / _ \(_-</ -_) __/  \033[0m")
-print ("\033[31m/___/\___/\__/_/\_\/___/____/\___/___/\__/_/      \033[0m")
-print ("\033[33m                     Instagram : @bossy.078 \033[0m")
+print ("\033[31m   ____         __        ___                     \033[2m") 
+print ("\033[31m  / __/__  ____/ /__ ___ / _ \___  ___ ___ ____   \033[2m")
+print ("\033[31m _\ \/ _ \/ __/  '_/(_-</ // / _ \(_-</ -_) __/  \033[2m")
+print ("\033[31m/___/\___/\__/_/\_\/___/____/\___/___/\__/_/      \033[2m")
+print ("\033[43m                     Instagram : @bossy.078 \033[2m")
 print (" ")
 
 ip = raw_input("\033[31m [+] Hedef / IP : \033[22m")
-port = input("\033[36m [+] Port : \033[2m")
-thread_num = input("\033[33m [+] Threads : \033[2m")
+port = input("\033[36m [+] Port : \033[22m")
+thread_num = input("\033[33m [+] Threads : \033[22m")
 url2 = '/'
-out_file = raw_input("\033[34m [+] Proxy [proxy.txt] : \033[2m")
-print ("\033[34m [+] Toplam Proxy : %s \033[2m" % (len(open(out_file).readlines())))
-multiple = int(input("\033[32m [+] Adet : \033[2m"))
+out_file = raw_input("\033[34m [+] Proxy [proxy.txt] : \033[22m")
+print ("\033[34m [+] Toplam Proxy : %s \033[22m" % (len(open(out_file).readlines())))
+multiple = int(input("\033[32m [+] Adet : \033[22m"))
 
 acceptall = [
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
