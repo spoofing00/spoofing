@@ -136,7 +136,7 @@ ip = raw_input("[+] Hedef / IP : ")
 port = input("[+] Port : ")
 thread_num = input("[+] Threads : ")
 url2 = '/'
-out_file = raw_input("[+] Proxy : ")
+out_file = raw_input("[+] Proxy [proxy.txt] : ")
 print ("[+] Toplam Proxy : %s" % (len(open(out_file).readlines())))
 multiple = int(input("[+] Adet : "))
 
