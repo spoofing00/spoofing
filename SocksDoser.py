@@ -172,7 +172,7 @@ def run():
                                 s = socks.socksocket()
                                 s.connect((str(ip), int(port)))
                                 s.send(str.encode(request))
-				print (str(proxy[0]+":"+proxy[1])+" Package Sent ! \r\n")
+				print "\033[92m (str(proxy[0]+":"+proxy[1])+ \033[0m \033[92m Package Sent ! \033[m \r\n")
 				try:
 					for y in range(multiple):
 						s.send(str.encode(request))
