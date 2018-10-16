@@ -506,7 +506,7 @@ def blogspotget(url, word, word2): # anche questa funzione scarica proxy pero' d
 							out_file.close()
 							break # il ciclo si ferma non appena ha finito
 	except:
-		print("\nAn error occurred, skipping to the next website.")
+		print("\nAn Error Occurred, Skipping To The Next Website.")
 
 def proxylist(): # funzione per la creazione della proxylist
 	global proxies
@@ -543,7 +543,7 @@ def proxychecker(i):
 		print ("%s Works!\n\n" % proxy) # se funziona printa "it works"
 		out_file.write(i)               # e lo scrive nel file.
 	except:
-		print ("%s does not respond.\n\n" % proxy) #altrimenti dice che non risponde
+		print ("%s Does Not Respond.\n\n" % proxy) #altrimenti dice che non risponde
 
 def main(): # funzione effettiva del programma.
 	try:
@@ -571,7 +571,7 @@ def main(): # funzione effettiva del programma.
 		print ("\nDownloading From Various Mirrors İn Progress...")
 		for position, url in enumerate(nurls):
 			proxyget(url)
-			print("Completed downloads: (%s/%s)\nCurrent IPs in proxylist: %s" % (position+1, len(nurls), len(open("proxy.txt").readlines())))
+			print("Completed Downloads: (%s/%s)\nCurrent IPs in proxylist: %s" % (position+1, len(nurls), len(open("proxy.txt").readlines())))
 
 		print ("\nDownloading From Foxtools İn Progress...")
 		foxtools = ['http://api.foxtools.ru/v2/Proxy.txt?page=%d' % n for n in range(1, 6)] # per prendere ip di tutte e 6 le pagine
