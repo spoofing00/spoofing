@@ -466,7 +466,7 @@ def proxyget(url): # scarica proxy da altri siti
 							out_file.close()
 							break # appena finisce ferma il ciclo
 	except:
-		print("\nAn error occurred, skipping to the next website.")
+		print("\nAn Error Occurred, Skipping To The Next Website.")
 
 def proxyget2(url): # lo dice il nome, questa funzione scarica i proxies
 	try:
@@ -488,7 +488,7 @@ def proxyget2(url): # lo dice il nome, questa funzione scarica i proxies
 		out_file.write(proxies)
 		out_file.close()
 	except: # se succede qualche casino
-		print("\nAn error occurred, skipping to the next website.")
+		print("\nAn Error Occurred, Skipping To The Next Website.")
 
 def blogspotget(url, word, word2): # anche questa funzione scarica proxy pero' dai siti blogspot
 	try:
@@ -510,7 +510,7 @@ def blogspotget(url, word, word2): # anche questa funzione scarica proxy pero' d
 
 def proxylist(): # funzione per la creazione della proxylist
 	global proxies
-	print ("\nChecking for duplicates...")
+	print ("\nChecking For Duplicates...")
 	proxies = open("proxy.txt").readlines() # la lista txt presenta doppioni, quindi:
 	proxiesp = []
 	for i in proxies:
@@ -521,7 +521,7 @@ def proxylist(): # funzione per la creazione della proxylist
 	filepr = open("proxy.txt", "a") # dopo lo apre in modalità a per non sovrascrivere i proxy
 	for i in proxiesp:
 		filepr.write(i)
-	print("Current IPs in proxylist: %s" % (len(open("proxy.txt").readlines())))
+	print("Current IPs İn Proxylist: %s" % (len(open("proxy.txt").readlines())))
 	print ("\nProxylist Updated!\n")
 
 def proxycheckerinit():
@@ -540,7 +540,7 @@ def proxychecker(i):
 	urllib.request.install_opener(opener)
 	try:
 		urllib.request.urlopen("http://www.google.com", timeout=10)
-		print ("%s works!\n\n" % proxy) # se funziona printa "it works"
+		print ("%s Works!\n\n" % proxy) # se funziona printa "it works"
 		out_file.write(i)               # e lo scrive nel file.
 	except:
 		print ("%s does not respond.\n\n" % proxy) #altrimenti dice che non risponde
@@ -550,14 +550,14 @@ def main(): # funzione effettiva del programma.
 		out_file = open("proxy.txt","w") # prima di tutto cancella il contenuto di proxy.txt
 		out_file.close()
 
-		print ("\nDownloading from free-proxy-list in progress...")
+		print ("\nDownloading From Free-proxy-list İn Progress...")
 		url = "http://free-proxy-list.net/"
 		proxyget2(url) # manda url alla funzione
 		url = "https://www.us-proxy.org/"
 		proxyget2(url)
-		print("Current IPs in proxylist: %s" % (len(open("proxy.txt").readlines()))) # rpinta la lunghezza attuale del file, che sarebbe il numero di proxy
+		print("Current IPs İn Proxylist: %s" % (len(open("proxy.txt").readlines()))) # rpinta la lunghezza attuale del file, che sarebbe il numero di proxy
 
-		print ("\nDownloading from blogspot in progress...\n")
+		print ("\nDownloading From Blogspot İn Progress...\n")
 		url = "http://www.proxyserverlist24.top/"
 		word = "post-title entry-title"
 		word2 = "h3"
@@ -566,34 +566,34 @@ def main(): # funzione effettiva del programma.
 		word = "post-body entry-content"
 		word2 = "div"
 		blogspotget(url,word,word2)
-		print("Current IPs in proxylist: %s" % (len(open("proxy.txt").readlines())))
+		print("Current IPs İn Proxylist: %s" % (len(open("proxy.txt").readlines())))
 
-		print ("\nDownloading from various mirrors in progress...")
+		print ("\nDownloading From Various Mirrors İn Progress...")
 		for position, url in enumerate(nurls):
 			proxyget(url)
 			print("Completed downloads: (%s/%s)\nCurrent IPs in proxylist: %s" % (position+1, len(nurls), len(open("proxy.txt").readlines())))
 
-		print ("\nDownloading from foxtools in progress...")
+		print ("\nDownloading From Foxtools İn Progress...")
 		foxtools = ['http://api.foxtools.ru/v2/Proxy.txt?page=%d' % n for n in range(1, 6)] # per prendere ip di tutte e 6 le pagine
 		for position, url in enumerate(foxtools):
 			proxyget(url)
-		print("Current IPs in proxylist: %s" % (len(open("proxy.txt").readlines())))
+		print("Current IPs İn Proxylist: %s" % (len(open("proxy.txt").readlines())))
 
 		proxylist() # dopo esegue questa funzione che setta meglio la lista
 
 		print("\n")
 		while True:
-			choice = input("\nDo you want to check the proxies? [Y/n] > ")
+			choice = input("\nDo You Want To Check The Proxies? [Y/n] > ")
 			if choice == 'Y' or choice == 'y' or choice == 'yes' or choice == 'Yes':
 				proxycheckerinit()
 				break
 			if choice == 'N' or choice == 'n' or choice == 'no' or choice == 'No':
 				exit(0)
 			else:
-				print ("Please write correctly.")
+				print ("Please Write Correctly.")
 
 	except:
-		print ("\n\nAn error occurred.")
+		print ("\n\nAn Error Occurred.")
 
 
 
@@ -601,7 +601,7 @@ def main(): # funzione effettiva del programma.
 if __name__ == '__main__':
 
 	while True:
-		choice = input("\nDo you want to download proxies? [Y/n] > ")
+		choice = input("\nDo You Want To Download Proxies? [Y/n] > ")
 		if choice == 'Y' or choice == 'y' or choice == 'yes' or choice == 'Yes': # se si vuole scaricare i proxy va in main()
 			main()
 			break
@@ -609,4 +609,4 @@ if __name__ == '__main__':
 			proxycheckerinit()
 			break
 		else: # se scrivi male richiede l'input
-			print ("Please write correctly.")
+			print ("Please Write Correctly.")
