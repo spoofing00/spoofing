@@ -145,7 +145,8 @@ class MonitorThread(threading.Thread):
         if flag == 2:
             print("\n-- DOS Attack Finished --")
 
-
+thread_num = input("\033[95m [+] Threads : \033[1m")
+print (" ")
 # execute
 if len(sys.argv) < 2 or sys.argv[1] == "help":
     usage()
@@ -165,3 +166,6 @@ else:
         t.start()
     t = MonitorThread()
     t.start()
+for i in range(thread_num):
+    th = threading.Thread(target = run)
+    th.start()
