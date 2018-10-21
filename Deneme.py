@@ -10,7 +10,7 @@ print ("    / _ \/ _ \/ __ \/ __/ ")
 print (" _ / // / // / /_/ /\ \_  ")   
 print ("(_)____/____/\____/___(_) ") 
 print (" Instagram : @bossy.078 ")
-                             
+print (" ")                             
 
 ip = str(input("[+] Hedef/IP : "))
 port = int(input("[+] Port : "))
