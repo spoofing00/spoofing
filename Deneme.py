@@ -1,4 +1,4 @@
-$ cat new.py
+
 #---DDOS ATTACK BY CRACK BUI---
 
 import random
@@ -482,5 +482,3 @@ nload = 0
 
 while not nload:
     time.sleep(1)
-
-$
