@@ -15,13 +15,11 @@ except: # altrimenti, se fallisce l'importazione
 	print ("HTTP - SOCKS DDOS ATTACK.") # printa questo
 
 print('''
-
    ___  ___  ____  _  ____  __    ___  ___  ____  ____  
   / _ \/ _ \/ __ \| |/_/\ \/ /___/ _ \/ _ \/ __ \/ __/  
  / ___/ , _/ /_/ />  <   \  /___/ // / // / /_/ /\ \    
 /_/  /_/|_|\____/_/|_|   /_/   /____/____/\____/___/    
-                          Instagram : @bossy.078                        
-							
+                          Instagram : @bossy.078                        							
 	''') # la grafica ci sta
 
 
