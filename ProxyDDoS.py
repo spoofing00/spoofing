@@ -537,7 +537,7 @@ def floodport():
 
 def proxymode():
 	global choice2
-	choice2 = input("Please Write [Y] : ")
+	choice2 = input("Please Write [y] : ")
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
