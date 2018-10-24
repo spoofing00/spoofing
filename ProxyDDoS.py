@@ -931,7 +931,7 @@ class RequestProxyHTTP(threading.Thread): # la classe del multithreading
 				s = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # ecco il nostro socket
 				s.connect((str(proxy[0]), int(proxy[1]))) # connessione al proxy
 				s.send(str.encode(request)) # encode in bytes della richiesta HTTP
-				print (" " + str(proxy[0]+":"+proxy[1]) + " ", ) # print delle richieste
+				print ("" + str(proxy[0]+":"+proxy[1]) + " ", ) # print delle richieste
 				try: # invia altre richieste nello stesso thread
 					for y in range(multiple): # fattore di moltiplicazione
 						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
@@ -962,7 +962,7 @@ class RequestSocksHTTP(threading.Thread): # la classe del multithreading
 				s = socks.socksocket() # creazione socket con pysocks
 				s.connect((str(url2), int(urlport))) # connessione
 				s.send (str.encode(request)) # invio
-				print (" " + str(proxy[0]+":"+proxy[1]) + " ", ) # print req + counter
+				print ("" + str(proxy[0]+":"+proxy[1]) + " ", ) # print req + counter
 				try: # invia altre richieste nello stesso thread
 					for y in range(multiple): # fattore di moltiplicazione
 						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
@@ -975,7 +975,7 @@ class RequestSocksHTTP(threading.Thread): # la classe del multithreading
 					s = socks.socksocket() # creazione nuovo socket
 					s.connect((str(url2), int(urlport))) # connessione
 					s.send (str.encode(request)) # invio
-					print (" " + str(proxy[0]+":"+proxy[1]) + " ", ) # print req + counter
+					print ("" + str(proxy[0]+":"+proxy[1]) + " ", ) # print req + counter
 					try: # invia altre richieste nello stesso thread
 						for y in range(multiple): # fattore di moltiplicazione
 							s.send(str.encode(request)) # encode in bytes della richiesta HTTP
