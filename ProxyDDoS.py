@@ -464,10 +464,10 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 	global url2
 	global urlport
 
-	url = input("\nInsert URL/IP: ").strip()
+	url = input("\nURL / IP : ").strip()
 
 	if url == "":
-		print ("Please enter the url.")
+		print ("Please Enter The Url")
 		starturl()
 
 	try:
@@ -478,7 +478,7 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 		else:
 			url = "http://" + url
 	except:
-		print("You mistyped, try again.")
+		print("You Mistyped Try Again")
 		starturl()
 
 	try:
@@ -495,13 +495,13 @@ def starturl(): # in questa funzione setto l'url per renderlo usabile per il fut
 
 def floodmode(): # la scelta della modalità di attacco
 	global choice1
-	choice1 = input("Do you want to perform HTTP flood '0'(best), TCP flood '1' or UDP flood '2' ? ")
+	choice1 = input("Please Write [0] : ")
 	if choice1 == "0":
 		proxymode()
 	elif choice1 == "1":
 		try:
 			if os.getuid() != 0: # se il programma NON e' stato eseguito come root:
-				print("You need to run this program as root to use TCP/UDP flooding.") # printa questo
+				print(" ") # printa questo
 				exit(0) # e esce
 			else: # altrimenti
 				floodport() # continua
@@ -510,14 +510,14 @@ def floodmode(): # la scelta della modalità di attacco
 	elif choice1 == "2":
 		try:
 			if os.getuid() != 0: # se il programma NON e' stato eseguito come root:
-				print("You need to run this program as root to use TCP/UDP flooding.") # printa questo
+				print(" ") # printa questo
 				exit(0) # e esce
 			else: # altrimenti
 				floodport() # continua
 		except:
 			pass
 	else:
-		print ("You mistyped, try again.")
+		print ("You Mistyped Try Again")
 		floodmode()
 
 def floodport():
@@ -537,7 +537,7 @@ def floodport():
 
 def proxymode():
 	global choice2
-	choice2 = input("Do you want proxy/socks mode? Answer 'y' to enable it: ")
+	choice2 = input("Please Write [Y] : ")
 	if choice2 == "y":
 		choiceproxysocks()
 	else:
