@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 try: # se si è sotto linux scapy (per l'attacco tcp-udp) funziona
 	from scapy.all import * # importa scapy
 except: # altrimenti, se fallisce l'importazione
-	print ("TCP/UDP FLOOD ARE NOT SUPPORTED UNDER THIS SYSTEM. YOU MUST USE HTTP FLOOD.") # printa questo
+	print ("HTTP - SOCKS DDOS ATTACK.") # printa questo
 
 print('''
 
