@@ -25,7 +25,7 @@ def run():
 
 def run2():
 	data = random._urandom(16)
-	i = random.choice(("[*]","[!]","[#]"))
+	i = random.choice(("[A]","[S]","[P]","[A]","[R]","[R]","[T]","[I]","[M]"))
 	while True:
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
