@@ -33,9 +33,9 @@ def run2():
 			s.send(data)
 			for x in range(times):
 				s.send(data)
-			print(i +" [+] Package Sent !")
+			print(i +" Package Sent !")
 		except:
-			print(i +" [+] Package Sent !")
+			print(i +" Package Sent !")
 			pass
 			#s.close()
 			#print("[*] Error")
