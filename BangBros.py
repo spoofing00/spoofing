@@ -78,7 +78,7 @@ def start_notifying
   Thread.new do
     loop do
       sleep 3.5
-      puts "[#{green('i')}] #{@requests_counter} requests send\n"
+      puts "[#{green('i')}] #{@requests_counter} Requests Send\n"
     end
   end
 end
@@ -91,7 +91,7 @@ def parse_flags
   options = {}
   OptionParser.new do |opt|
     opt.on('--url       Target url (e.g. "https://target.site.com")') { |o| options[:url] = o }
-    opt.on('--threads   Number of scanning threads (default 10)') { |o| options[:threads] = o }
+    opt.on('--threads   Number of scanning threads (default 20)') { |o| options[:threads] = o }
     opt.on('--type      Type of request (e.g. "get") (default "get")') { |o| options[:type] = o }
     opt.on('--proxy     Proxy address (e.g. "http://proxy-site.com:1345")') { |o| options[:proxy] = o }
     opt.on('--data      Data payload for POST request (e.g. "{"json": "payload"}")') { |o| options[:data] = o }
@@ -99,7 +99,7 @@ def parse_flags
   end.parse!
   return options
 rescue
-  puts "[!] Use '-h' to see available options\n"
+  puts "[!] Use '-h' To See Available Options\n"
   abort
 end
 
@@ -120,7 +120,7 @@ def proxy
 end
 
 def threads
-  (input_options[:threads] || 10).to_i
+  (input_options[:threads] || 20).to_i
 end
 
 def init_headers
@@ -153,8 +153,8 @@ def make_request(url, proxy = nil, headers = { 'User-agent' => user_agent })
     stdin, stdout, stderr, wait_thr1 = Open3.popen3(curl_request(url, proxy))
     retval = stdout.read
     status_code = retval.to_i
-    puts "[#{red('!')}] You have been throttled(429)" if status_code == 429
-    puts "[#{red('!')}] Status code 500 received" if status_code == 500
+    puts "[#{red('!')}] You Have Been Throttled(429)" if status_code == 429
+    puts "[#{red('!')}] Status Code 500 Received" if status_code == 500
     @requests_counter += 1 unless status_code == 0
   rescue => error
     retval = error
