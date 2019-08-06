@@ -1,13 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python2
-#Coded By Bossy:
-#Forbidden to Edit,Mod:
-#####################################
-#####################################
-####0h00/1/1/2019--Layer7Ddos2019####
-####Check_ProxyHost_By_SPOOFİNG######
-#####################################
-#####################################
+#######################
 import os
 import sys
 import time
@@ -1458,18 +1451,12 @@ class Requested(threading.Thread):
               except:
                  sys.exit(3)
 print("")
-print("                      PROXY ---------Requests----------||||               ")
-print("           Computer ========|           |               ==> HOST          ")
-print("          +--------+      HTTP     Web Browser      :80 +----------+      ")
-print("          | Client |  --------------------------------> |          |      ")
-print("          |        |         Layer 7 Requests           | ProxyHTTP|      ")
-print("          +--------+             +---------+            |==========|      ")
-print("         /Requests/     HTTPS    |         | HTTPs Ports|__________|      ")
-print("        <________/    ---------> | (Server | ---------> | Listening|      ")    
-print("             \\      Status Server|  mode)  |            |          |     ")
-print("              \\__| ==============|         | <----------| RESPONSE |     ")
-print("                                 +---------+   Status   +----------+      ")
-print("    !____________________________________________________________________!")
+print("    ____  ____  ___ __________   __________  _____ ")
+print("   / __ )/ __ \/   /__  /__  /  / ____/ __ \/ ___/ ")
+print("  / __  / /_/ / /| | / /  / /  / __/ / /_/ /\__ \  ")
+print(" / /_/ / _, _/ ___ |/ /__/ /__/ /___/ _, _/___/ /  ")
+print("/_____/_/ |_/_/  |_/____/____/_____/_/ |_|/____/   ")
+print("                              Instagram : @0zctn   ")                                                 
 
 print(" =========>>.:.Hello Bossy ,Welcome Ddos Attack2019 WEBSITE.:.<<=========")
 print("")
