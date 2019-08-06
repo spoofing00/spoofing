@@ -8,7 +8,7 @@ def banner
 ╔╗ ┌─┐┌┐┌┌─┐╔╗ ┬─┐┌─┐┌─┐
 ╠╩╗├─┤││││ ┬╠╩╗├┬┘│ │└─┐
 ╚═╝┴ ┴┘└┘└─┘╚═╝┴└─└─┘└─┘
-         Instagram : @0zctn                                              
+   Instagram : @0zctn v#{version}                                             
   "
 end
 
