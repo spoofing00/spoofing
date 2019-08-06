@@ -91,7 +91,7 @@ def parse_flags
   options = {}
   OptionParser.new do |opt|
     opt.on('--url       Target Url (e.g. "https://target.site.com")') { |o| options[:url] = o }
-    opt.on('--threads   Number Of Scanning Threads (Default 20)') { |o| options[:threads] = o }
+    opt.on('--threads   Number Of Scanning Threads (Default 135)') { |o| options[:threads] = o }
     opt.on('--type      Type Of Request (e.g. "get") (Default "get")') { |o| options[:type] = o }
     opt.on('--proxy     Proxy Address (e.g. "http://proxy-site.com:1345")') { |o| options[:proxy] = o }
     opt.on('--data      Data Payload For POST Request (e.g. "{"json": "payload"}")') { |o| options[:data] = o }
@@ -120,7 +120,7 @@ def proxy
 end
 
 def threads
-  (input_options[:threads] || 20).to_i
+  (input_options[:threads] || 135).to_i
 end
 
 def init_headers
