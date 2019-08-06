@@ -182,7 +182,7 @@ def run
   init_headers
   start_loading_progress
   start_notifying
-  puts "[i] Start Sending Requests (#{threads} threads)...\n"
+  puts "[i] Start Sending Requests (#{threads} Threads)\n"
   requests_parallel_run
 end
 
