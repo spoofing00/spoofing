@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python2
-#######################
+##############################
+#╔╗ ╦═╗╔═╗╔═╗╔═╗╔═╗╦═╗╔═╗#
+#╠╩╗╠╦╝╠═╣╔═╝╔═╝║╣ ╠╦╝╚═╗#
+#╚═╝╩╚═╩ ╩╚═╝╚═╝╚═╝╩╚═╚═╝#
+##############################
 import os
 import sys
 import time
@@ -1458,7 +1462,7 @@ print(" / /_/ / _, _/ ___ |/ /__/ /__/ /___/ _, _/___/ /  ")
 print("/_____/_/ |_/_/  |_/____/____/_____/_/ |_|/____/   ")
 print("                              Instagram : @0zctn   ")                                                 
 print("")
-print(" Ctrl + C To Stop The Program ")
+print(" Ctrl + Z To Stop The Program ")
 print("")
 if os.name in ('nt', 'dos', 'ce'):
     os.system('title       ........::::: Code By Thunder(Bossy),Layer 7 Ddos Attack :::::........')
