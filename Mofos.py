@@ -376,11 +376,11 @@ class Requests(threading.Thread):
  
 
 print(" ")
-print("   __  _______  ________  ____ ")
-print("  /  |/  / __ \/ __/ __ \/ __/ ")
-print(" / /|_/ / /_/ / _// /_/ /\ \  ")
-print("/_/  /_/\____/_/  \____/___/  ")
-print("         Instagram : @0zctn ")                   
+print("                  __  _______  ________  ____ ")
+print("                 /  |/  / __ \/ __/ __ \/ __/ ")
+print("                / /|_/ / /_/ / _// /_/ /\ \  ")
+print(".              /_/  /_/\____/_/  \____/___/  ")
+print("                        Instagram : @0zctn ")                   
 print(" ")
 
 url = raw_input(" Host : ")
