@@ -376,10 +376,13 @@ class Requests(threading.Thread):
  
 
 print(" ")
-print("               ╔╦╗╔═╗╔═╗╔═╗╔═╗ ")
-print("               ║║║║ ║╠╣ ║ ║╚═╗ ")
-print("               ╩ ╩╚═╝╚  ╚═╝╚═╝ ")
-print("               Instagram : @0zctn ")
+
+   __  _______  ________  ____
+  /  |/  / __ \/ __/ __ \/ __/
+ / /|_/ / /_/ / _// /_/ /\ \  
+/_/  /_/\____/_/  \____/___/  
+                              
+
 print(" ")
 
 url = raw_input(" Host : ")
