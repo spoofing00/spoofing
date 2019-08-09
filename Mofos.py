@@ -374,15 +374,13 @@ class Requests(threading.Thread):
                 proxy = random.choice(listaproxy).split(':')
  
  
-print \
-"""
-               ╔╦╗╔═╗╔═╗╔═╗╔═╗
-               ║║║║ ║╠╣ ║ ║╚═╗
-               ╩ ╩╚═╝╚  ╚═╝╚═╝
-               Instagram : @0zctn
 
-"""
-print ' '
+print(" ")
+print("               ╔╦╗╔═╗╔═╗╔═╗╔═╗ ")
+print("               ║║║║ ║╠╣ ║ ║╚═╗ ")
+print("               ╩ ╩╚═╝╚  ╚═╝╚═╝ ")
+print("               Instagram : @0zctn ")
+print(" ")
 
 url = raw_input(" Host : ")
 host_url = url.replace("http://", "").replace("https://", "").split('/')[0]
