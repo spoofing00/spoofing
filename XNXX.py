@@ -343,7 +343,7 @@ def check_socks():
 		th.join()
 		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
-	print("\r\n root@bossy:~# Checked All Proxies Total Worked :"+str(len(proxies)))
+	print("\r\nroot@bossy:~# Checked All Proxies Total Worked :"+str(len(proxies)))
 	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y/n ) ")
 	if ans == "y":
 		in_file = str(input("root@bossy:~# Input Your Filename ( socks.txt ) : "))
