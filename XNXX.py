@@ -379,7 +379,7 @@ def main():
 		r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
 		with open("socks.txt",'wb') as f:
 			f.write(r.content)
-			print("\r\n root@bossy:~# [!] Have Already Download Socks5 List As socks.txt\r\n")
+			print("\r\nroot@bossy:~# [!] Have Already Download Socks5 List As socks.txt\r\n")
 	else:
 		pass
 	out_file = str(input("root@bossy:~# Proxy File Path ( socks.txt ) : "))
