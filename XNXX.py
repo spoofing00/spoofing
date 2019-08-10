@@ -337,16 +337,16 @@ def check_socks():
 		th.start()
 		thread_list.append(th)
 		time.sleep(0.1)
-		sys.stdout.write("> Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
 	for th in list(thread_list):
 		th.join()
-		sys.stdout.write("> Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" proxies\r")
 		sys.stdout.flush()
-	print("\r\n> Checked all proxies, Total Worked:"+str(len(proxies)))
-	ans = input("> Do u want to save them in a file? (y/n)")
+	print("\r\n root@bossy:~# Checked All Proxies Total Worked :"+str(len(proxies)))
+	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y/n ) ")
 	if ans == "y":
-		in_file = str(input("> Input your filename(socks.txt):"))
+		in_file = str(input("root@bossy:~# Input Your Filename ( socks.txt ) : "))
 		if in_file == "":
 			in_file = "socks.txt"
 		with open(in_file, 'wb') as fp:
