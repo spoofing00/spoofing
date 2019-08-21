@@ -29,7 +29,7 @@ def Http_grab():
         print random.choice(color_array)+'..'
         time.sleep(1)
         print random.choice(color_array)+'....'
-        r = get('https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all').text.encode('utf-8')
+        r = get('https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=2724&country=all&ssl=all&anonymity=all').text.encode('utf-8')
         with open('HTTP_Proxy.txt','w') as op:
                 op.write(r.replace('\r\n','\n'))
         Clear()
@@ -43,7 +43,7 @@ def Socks5_grab():
         print random.choice(color_array)+'..'
         time.sleep(1)
         print random.choice(color_array)+'....'
-        r = get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=10000&country=all&ssl=all&anonymity=all').text.encode('utf-8')
+        r = get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks5&timeout=2724&country=all&ssl=all&anonymity=all').text.encode('utf-8')
         with open('SOCKS5_Proxy.txt','w') as op:
                 op.write(r.replace('\r\n','\n'))
         Clear()
@@ -57,7 +57,7 @@ def Socks4_grab():
         print random.choice(color_array)+'..'
         time.sleep(1)
         print random.choice(color_array)+'....'
-        r = get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=10000&country=all&ssl=all&anonymity=all').text.encode('utf-8')
+        r = get('https://api.proxyscrape.com/?request=getproxies&proxytype=socks4&timeout=2724&country=all&ssl=all&anonymity=all').text.encode('utf-8')
         with open('SOCKS4_Proxy.txt','w') as op:
                 op.write(r.replace('\r\n','\n'))
         Clear()
