@@ -5,10 +5,12 @@ def Print():
         Cls = '\x1b[0m'
         Colors = [37,31,32,36,30,35,34,33]
         Logo = '''
-          ╔═╗  ╦═╗  ╔═╗  ═╗ ╦  ╦ ╦
-          ╠═╝  ╠╦╝  ║ ║  ╔╩╦╝  ╚╦╝
-          ╩    ╩╚═  ╚═╝  ╩ ╚═   ╩ 
-               HTTP/S - SOCKS4 SOCKS5
+          ____________ _______   ____   __
+          | ___ \ ___ \  _  \ \ / /\ \ / /
+          | |_/ / |_/ / | | |\ V /  \ V / 
+          |  __/|    /| | | |/   \   \ /  
+          | |   | |\ \\ \_/ / /^\ \  | |  
+          \_|   \_| \_|\___/\/   \/  \_/  
         '''
         for N,Line in enumerate(Logo.split('\n')):
                 sys.stdout.write('\x1b[1;%dm%s%s\n' % (random.choice(Colors), Line, Cls))
