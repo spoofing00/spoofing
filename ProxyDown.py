@@ -10,7 +10,9 @@ def Print():
           | |_/ / |_/ / | | |\ V /  \ V / 
           |  __/|    /| | | |/   \   \ /  
           | |   | |\ \\ \_/ / /^\ \  | |  
-          \_|   \_| \_|\___/\/   \/  \_/  
+          \_|   \_| \_|\___/\/   \/  \_/
+                  HTTP/S - SOCKS5 - SOCKS4
+                                    @0zctn  
         '''
         for N,Line in enumerate(Logo.split('\n')):
                 sys.stdout.write('\x1b[1;%dm%s%s\n' % (random.choice(Colors), Line, Cls))
@@ -20,7 +22,7 @@ def Clear():
         windows = 'cls'
         os.system([linux, windows][os.name == 'nt'])
 def Http_grab():
-        print random.choice(color_array)+'Grabbing Http Proxies'
+        print random.choice(color_array)+'Http Proxies'
         time.sleep(1)
         print random.choice(color_array)+'.'
         time.sleep(1)
@@ -73,8 +75,8 @@ while True:
         c = '\033[36m'
         w = '\033[37m'
         color_array = ['\033[31m', '\033[32m', '\033[33m', '\033[34m', '\033[35m', '\033[36m', '\033[37m', '\033[39m']
-        print random.choice(color_array)+'root@bossy:~# Enter The Proxy Type Number:'+'\n'+random.choice(color_array)+'[1]HTTP/S'+'\n'+random.choice(color_array)+'[2]SOCKS5'+'\n'+random.choice(color_array)+'[3]SOCKS4'
-        tYpe = raw_input('root@bossy:~# ')
+        print random.choice(color_array)+'[?] Enter The Proxy Type Number : '+'\n'+random.choice(color_array)+'[1] HTTP/S'+'\n'+random.choice(color_array)+'[2] SOCKS5'+'\n'+random.choice(color_array)+'[3] SOCKS4'
+        tYpe = raw_input('root@bossy:~# [1,2,3] ')
         if tYpe == '1':
                 Clear()
                 Http_grab()
