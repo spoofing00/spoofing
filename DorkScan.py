@@ -108,7 +108,7 @@ def Generator():
                 gen += 1
                 dork = str(bef)+str(one)+str(two)+str(three)+' '+str(aft)
                 print(YELLOW+'      ['+GREEN+'+'+YELLOW+']'+CYAN+dork)
-                with open('Generator/Generated['+f_name+'].txt','a') as wr:
+                with open('Generator['+f_name+'].txt','a') as wr:
                     wr.write(dork+'\n')
     print('\n\n')
     print(GREEN+' ['+YELLOW+'!'+GREEN+']'+BLUE+'Generated'+CYAN+': '+RED+str(gen))
