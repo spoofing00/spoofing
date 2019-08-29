@@ -35,7 +35,7 @@ print "|     Wordpress Login Brute Forcer        |"
 print "|         Created By Spoof.               |"
 print "+_________________________________________+"
 time.sleep(1)
-print "\n Calculating Number Of Words İn '%s' " %wlist
+print "\n Calculating Number Of Words In '%s' " %wlist
 time.sleep(1.3)
 
 words = open(sys.argv[3],"r").readlines()
@@ -86,7 +86,7 @@ for word in words:
 		os.system("rm wpbrute_output.html")
 
 		if "Invalid username" in ofile_read or ("Nome de usu" in ofile_read and "inv" in ofile_read and "lido." in ofile_read) or "Nome utente non valido" in ofile_read:
-			print ".. Invalid username!\n"
+			print " Invalid Username\n"
 			sys.exit(1)
 			#print "________________________________________\n"
 
