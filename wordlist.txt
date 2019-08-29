@@ -1,7 +1,0 @@
-admin
-admin123
-admin1234
-admin12345
-password
-12345
-123456
