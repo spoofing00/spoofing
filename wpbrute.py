@@ -12,10 +12,12 @@ try:
 
 except:
 	time.sleep(0.6)
-	print "+_________________________________________+"
-	print "|     Wordpress Login Brute Forcer        |"
-	print "|         Created By Spoof.               |"
-	print "+_________________________________________+\n"
+	print "                                      
+	print " _ _ _ _____     _____         _       "
+	print "| | | |  _  |___| __  |___ _ _| |_ ___ "
+	print "| | | |   __|___| __ -|  _| | |  _| -_|"
+	print "|_____|__|      |_____|_| |___|_| |___|\n"
+	print "                                @0zctn"
 	time.sleep(1)
 	print "Usage : python wpbrute.py <target> <username> <wordlist> <proxy>\n"
 	print "Example1 : python wpbrute.py http://www.mywebsite.com/ admin wordlist.txt"
@@ -32,7 +34,7 @@ if "http://" not in target:
 
 print "+_________________________________________+"
 print "|     Wordpress Login Brute Forcer        |"
-print "|         Created By Spoof.               |"
+print "|         Created By Spoofing             |"
 print "+_________________________________________+"
 time.sleep(1)
 print "\n Calculating Number Of Words In '%s' " %wlist
