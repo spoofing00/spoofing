@@ -93,6 +93,6 @@ for word in words:
 
 	else:
 		print "\n__________________________________________________________"
-		print " Login Bruteforced --> '%s : %s'" %(username,word)
+		print " Login Bruteforced --> '%s:%s'" %(username,word)
 		print "__________________________________________________________\n"
 		sys.exit(1)
