@@ -1,9 +1,7 @@
 #!/usr/bin/env python2
-################################
-╔═╗╦ ╦╔╗╔   ╔═╗╦  ╔═╗╔═╗╔╦╗# 
-╚═╗╚╦╝║║║───╠╣ ║  ║ ║║ ║ ║║# 
-╚═╝ ╩ ╝╚╝   ╚  ╩═╝╚═╝╚═╝═╩╝#
-################################
+'''
+Coded By 0zctn
+'''
 import socket, sys, threading, random
 from struct import *
 from requests import *
