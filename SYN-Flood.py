@@ -6,16 +6,15 @@ import socket, sys, threading, random
 from struct import *
 from requests import *
 if len(sys.argv)<=2:
-    print("Usage : python "+ sys.argv[0]+ " <target ip> <port>")
+    print (" ")
+    print ("   ______  ___  __    ______             __")
+    print ("  / __/\ \/ / |/ /___/ __/ /__  ___  ___/ /")
+    print (" _\ \   \  /    /___/ _// / _ \/ _ \/ _  / ")
+    print ("/___/   /_/_/|_/   /_/ /_/\___/\___/\_,_/  ")
+    print ("                         Instagram : @0zctn")
+    print (" ")
+    print ("Usage : python "+ sys.argv[0]+ " <target ip> <port>")
     sys.exit()
-
-print (" ")
-print ("   ______  ___  __    ______             __")
-print ("  / __/\ \/ / |/ /___/ __/ /__  ___  ___/ /")
-print (" _\ \   \  /    /___/ _// / _ \/ _ \/ _  / ")
-print ("/___/   /_/_/|_/   /_/ /_/\___/\___/\_,_/  ")
-print ("                         Instagram : @0zctn")
-print (" ")
 
 def checksum(msg):
     s = 0
