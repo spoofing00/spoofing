@@ -11,14 +11,13 @@ if len(sys.argv)<=2:
     print("Usage: python "+ sys.argv[0]+ " <target ip> <port>")
     sys.exit()
 
-print ('''
-
-   ______  ___  __    ______             __
-  / __/\ \/ / |/ /___/ __/ /__  ___  ___/ /
- _\ \   \  /    /___/ _// / _ \/ _ \/ _  / 
-/___/   /_/_/|_/   /_/ /_/\___/\___/\_,_/  
-                         Instagram : @0zctn
-                                        ''')
+print (" ")
+print ("   ______  ___  __    ______             __")
+print ("  / __/\ \/ / |/ /___/ __/ /__  ___  ___/ /")
+print (" _\ \   \  /    /___/ _// / _ \/ _ \/ _  / ")
+print ("/___/   /_/_/|_/   /_/ /_/\___/\___/\_,_/  ")
+print ("                         Instagram : @0zctn")
+print (" ")
 
 def checksum(msg):
     s = 0
