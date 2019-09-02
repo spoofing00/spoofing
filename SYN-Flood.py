@@ -31,7 +31,7 @@ def checksum(msg):
 try:
     s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
 except socket.error , msg:
-    print ('Socket could not be created. Error Code : ' + str(msg[0]) +' Message ' + msg[1])
+    print ('Socket could Not Be Created. Error Code : ' + str(msg[0]) +' Message ' + msg[1])
     sys.exit()
  
 s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
