@@ -16,14 +16,13 @@ if sys.platform == "linux" or sys.platform == "linux2":
 elif sys.platform == "win32":
     os.system("cls")
 
-print (" ")
+print ("\033[1;32m")
 print ("     _    ____  ____   _    ____ _____ ___ __  __ ")
 print ("    / \  / ___||  _ \ / \  |  _ \_   _|_ _|  \/  |")
 print ("   / _ \ \___ \| |_) / _ \ | |_) || |  | || |\/| |")
 print ("  / ___ \ ___) |  __/ ___ \|  _ < | |  | || |  | |")
 print (" /_/   \_\____/|_| /_/   \_\_| \_\|_| |___|_|  |_|")
 print (" ")
-print ("\033[1;32m")
 url = raw_input("URL : ")
 print ("\033[1;m")
 
