@@ -204,7 +204,7 @@ class httpth1(threading.Thread):
                 print ("\033[1;31m SERVER MIGHT ME DOWN \033[1;m")
                 pass
             except urllib2.URLError:
-                print ("\033[1;34m URL ERROR \033[1;m")
+                print ("\033[1;34m AsparTIM \033[1;m")
                 sys.exit()
             except ValueError:
                 print ("\033[1;34m [-] Check You're URL \033[1;m")
