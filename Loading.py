@@ -414,7 +414,7 @@ def useragent():
     headers.append("Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; RegKing; 240x320)")
     headers.append("SAGEM-myX5-2/1.0 Profile/MIDP-2.0 Configuration/CLDC-1.0")
     headers.append("UP.Browser/6.2.2.6.d.3 (GUI) MMP/1.0")
-    headers.append("Mozilla/5.0 (Linux; U; Android 2.3.6; es-es; GT-I8160 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1")")
+    headers.append("Mozilla/5.0 (Linux; U; Android 2.3.6; es-es; GT-I8160 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1")
     headers.append("Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SCH-I535 Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
     headers.append("Opera/9.80 (Android 4.1.2; Linux; Opera Mobi/ADR-1305251841) Presto/2.11.355 Version/12.10")
     headers.append("Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; GT-S6010 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30")
