@@ -17,8 +17,14 @@ elif sys.platform == "win32":
     os.system("cls")
 
 print (" ")
+print ("     _    ____  ____   _    ____ _____ ___ __  __ ")
+print ("    / \  / ___||  _ \ / \  |  _ \_   _|_ _|  \/  |")
+print ("   / _ \ \___ \| |_) / _ \ | |_) || |  | || |\/| |")
+print ("  / ___ \ ___) |  __/ ___ \|  _ < | |  | || |  | |")
+print (" /_/   \_\____/|_| /_/   \_\_| \_\|_| |___|_|  |_|")
+print (" ")
 print ("\033[1;32m")
-url = raw_input("          URL:  ")
+url = raw_input("URL : ")
 print ("\033[1;m")
 
 count = 0
@@ -1064,13 +1070,13 @@ class httpth1(threading.Thread):
                 print ("\033[1;34m SERVER MIGHT ME DOWN \033[1;m")
                 pass
             except urllib2.URLError:
-                print ("\033[1;34m URLERROR \033[1;m")
+                print ("\033[1;34m URL ERROR \033[1;m")
                 sys.exit()
             except ValueError:
-                print ("\033[1;34m [-]Check You're URL \033[1;m")
+                print ("\033[1;34m [-] Check You're URL \033[1;m")
                 sys.exit()
             except KeyboardInterrupt:
-                exit("\033[1;34m [-]Canceled By User \033[1;m")
+                exit("\033[1;34m [-] Canceled By User \033[1;m")
                 sys.exit()
 
 
@@ -1081,4 +1087,4 @@ while True:
     except Exception:
         pass
     except KeyboardInterrupt:
-        exit("\033[1;34m [-]Canceled By User \033[1;m")
+        exit("\033[1;34m [-] Canceled By User \033[1;m")
