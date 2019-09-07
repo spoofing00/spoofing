@@ -497,7 +497,7 @@ def useragent():
     headers.append("SonyEricssonK800i/R8BF Browser/NetFront/3.3 Profile/MIDP-2.0 Configuration/CLDC-1.1")
     headers.append("Opera/9.80 (J2ME/MIDP; Opera Mini/5.0.16823/1428; U; en) Presto/2.2.0")
     headers.append("Opera/9.60 (J2ME/MIDP; Opera Mini/4.2.13337/504; U; en) Presto/2.2.0")
-    headers.append("SonyEricssonK610i/R1CB Browser/NetFront/3.3 Profile/MIDP-2.0 Configuration/CLDC-1.1
+    headers.append("SonyEricssonK610i/R1CB Browser/NetFront/3.3 Profile/MIDP-2.0 Configuration/CLDC-1.1")
     headers.append("SonyEricssonK608i/R2L/SN356841000828910")
     headers.append("Browser/SEMC-Browser/4.2 Profile/MIDP-2.0 Configuration/CLDC-1.1")
     headers.append("SonyEricssonK550i/R1JD Browser/NetFront/3.3")
