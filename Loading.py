@@ -248,7 +248,7 @@ referer = {
     "http://www.online-translator.com/url/translation.aspx?direction=er&sourceURL=",
     "http://www.translate.ru/url/translation.aspx?direction=er&sourceURL=",
     "http://streamitwebseries.twww.tv/proxy.php?url=",
-    "http://www.comicgeekspeak.com/proxy.php?url=
+    "http://www.comicgeekspeak.com/proxy.php?url="
 }
 
 
