@@ -355,7 +355,7 @@ def check_socks(ms):#Coded by root@bossy:~#
 		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
 	print("\r\nroot@bossy:~# Checked All Proxies , Total Worked :"+str(len(proxies)))
-	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y / n , Default = y )")
+	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y / n , Default = y ) : ")
 	if ans == "y" or ans == "":
 		if choice == "4":
 			with open("socks4.txt", 'wb') as fp:
