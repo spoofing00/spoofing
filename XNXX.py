@@ -371,7 +371,7 @@ def check_socks(ms):#Coded by root@bossy:~#
 			print("root@bossy:~# They Are Saved In socks5.txt.")
 			
 def check_list(socks_file):
-	print("> Checking list")
+	print("root@bossy:~# Checking List")
 	temp = open(socks_file).readlines()
 	temp_list = []
 	for i in temp:
